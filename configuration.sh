@@ -10,6 +10,7 @@ sudo pacman -S xorg
 sudo pacman -S plasma-desktop
 sudo pacman -S sddm
 sudo pacman -S firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-gtk-config
+sudo pacman -S egl-wayland
 
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager
