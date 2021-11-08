@@ -13,9 +13,7 @@ sudo pacman -S firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-
 sudo pacman -S egl-wayland
 
 sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
 sudo systemctl enable sddm
-sudo systemctl start sddm
 
 #Installation of zsh with cool stuff WOOP
 sudo pacman -S zsh
@@ -38,3 +36,5 @@ echo "export FZF_DEFAULT_OPTS=\"--layout=reverse --inline-info --height=80%" >> 
 #Set plugins and theme
 sed -i -e 's/plugins=(git)/plugins=(fzf git history-substring-search colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-z)/g' $HOME/.zshrc
 sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="juanghurtado"/g' $HOME/.zshrc
+
+echo "Restart when you are ready and the full configuration should work"
