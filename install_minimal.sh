@@ -82,7 +82,7 @@ y|Y|yes|Yes)
     echo "useradd -G wheel -m zopazz" >> /mnt/continue.sh
     echo "echo \"Set user password\"" >> /mnt/continue.sh
     echo "passwd zopazz" >> /mnt/continue.sh
-    echo "sed -i -e ':a;N;\$!ba;s/## Uncomment to allow members of group wheel to execute any command\n#%wheel ALL=(ALL) ALL/## Uncomment to allow members of group wheel to execute any command\n%wheel ALL=(ALL) ALL/g'"
+    echo "sed -i -e ':a;N;\$\!ba;s/## Uncomment to allow members of group wheel to execute any command\n#%wheel ALL=(ALL) ALL/## Uncomment to allow members of group wheel to execute any command\n%wheel ALL=(ALL) ALL/g'"
     
     #Setup grub
     echo "pacman -Sy grub efibootmgr --noconfirm" >> /mnt/continue.sh
