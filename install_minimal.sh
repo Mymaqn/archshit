@@ -45,7 +45,7 @@ echo "passwd zopazz" >> /mnt/continue.sh
 
 echo "pacman -Sy grub efibootmgr" >> /mnt/continue.sh
 echo "pacman -Sy os-prober" >> /mnt/continue.sh
-echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub"
+echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub" >> /mnt/continue.sh
 echo "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB" >> /mnt/continue.sh
 echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/continue.sh
 
