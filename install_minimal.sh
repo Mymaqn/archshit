@@ -77,7 +77,7 @@ y|Y|yes|Yes)
 
     echo "pacman -Sy grub efibootmgr --noconfirm" >> /mnt/continue.sh
     echo "pacman -Sy os-prober --noconfirm" >> /mnt/continue.sh
-    echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub" >> /mnt/continue.sh
+    #echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub" >> /mnt/continue.sh
     echo "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB" >> /mnt/continue.sh
     echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/continue.sh
 
@@ -89,9 +89,6 @@ y|Y|yes|Yes)
     echo "echo \"Set root password\"" >> /mnt/continue.sh
     echo "passwd" >> /mnt/continue.sh
     echo "exit" >> /mnt/continue.sh
-
-
-
     #Go chroot in
     arch-chroot /mnt /bin/bash -c "chmod +x /continue.sh;/continue.sh"
     rm /mnt/continue.sh
