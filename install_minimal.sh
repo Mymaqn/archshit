@@ -39,7 +39,6 @@ echo "------------------------------------------------------------------------"
 echo $formatdisk
 
 case $formatdisk in
-
 y/Y/yes/Yes)
 
     mkfs.ext4 $ext4Part
