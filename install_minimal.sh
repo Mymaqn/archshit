@@ -104,6 +104,7 @@ y|Y|yes|Yes)
     
     #Now chroot in and execute the above script then remove it, when done
     arch-chroot /mnt /bin/bash -c "chmod +x /continue.sh;/continue.sh"
+    cat /mnt/continue.sh
     rm /mnt/continue.sh
     read -p "Press any key to reboot" 
     reboot now
