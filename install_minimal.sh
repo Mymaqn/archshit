@@ -84,7 +84,7 @@ y|Y|yes|Yes)
     
     echo "echo \"git clone https://github.com/Mymaqn/archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     echo "echo \"cd archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
-    echo "echo \"chmod +x ./configuration.sh >> /home/zopazz/configure.sh" >> /mnt/continue.sh
+    echo "echo \"chmod +x ./configuration.sh\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     echo "echo \"./configuration.sh\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     echo "echo \"Set root password\"" >> /mnt/continue.sh
     echo "passwd" >> /mnt/continue.sh
