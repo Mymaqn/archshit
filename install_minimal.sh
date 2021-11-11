@@ -80,8 +80,6 @@ y|Y|yes|Yes)
 
     #Create new user and add them to the sudoers file along with everyone in the wheel group
     echo "useradd -G wheel -m zopazz" >> /mnt/continue.sh
-    echo "echo \"Set user password\"" >> /mnt/continue.sh
-    echo "passwd zopazz" >> /mnt/continue.sh
     echo "sed -i -e ':a;N;\$\!ba;s/## Uncomment to allow members of group wheel to execute any command\n#%wheel ALL=(ALL) ALL/## Uncomment to allow members of group wheel to execute any command\n%wheel ALL=(ALL) ALL/g'" >> /mnt/continue.sh
     
     #Setup grub
@@ -97,7 +95,9 @@ y|Y|yes|Yes)
     echo "echo \"chmod +x ./configuration.sh\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     echo "echo \"./configuration.sh\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     
-    #Set the root password
+    #Set the root and user password
+    echo "echo \"Set user password\"" >> /mnt/continue.sh
+    echo "passwd zopazz" >> /mnt/continue.sh
     echo "echo \"Set root password\"" >> /mnt/continue.sh
     echo "passwd" >> /mnt/continue.sh
     echo "exit" >> /mnt/continue.sh
