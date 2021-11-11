@@ -40,64 +40,64 @@ case $formatdisk in
 
 y/Y/yes/Yes)
 
-mkfs.ext4 $ext4Part
-mkfs.fat -F 32 $efipart
-mkswap $swapPart
-swapon $swapPart
+    mkfs.ext4 $ext4Part
+    mkfs.fat -F 32 $efipart
+    mkswap $swapPart
+    swapon $swapPart
 
 
-mount $ext4Part /mnt
+    mount $ext4Part /mnt
 
-#Check if they are dual booting. If they are we want to mount their efi partition to /mnt/efi
-mkdir /mnt/efi
-mount $efipart /mnt/efi
+    #Check if they are dual booting. If they are we want to mount their efi partition to /mnt/efi
+    mkdir /mnt/efi
+    mount $efipart /mnt/efi
 
-#install base system
-pacstrap /mnt base linux linux-firmware
+    #install base system
+    pacstrap /mnt base linux linux-firmware
 
-#Generate fstab
-genfstab -U /mnt >> /mnt/etc/fstab
+    #Generate fstab
+    genfstab -U /mnt >> /mnt/etc/fstab
 
-#Create file to run within chroot environment
-echo "ln -sf /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime" >> /mnt/continue.sh
-echo "hwclock --systohc" >> /mnt/continue.sh
-echo "sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen" >> /mnt/continue.sh
-echo "sed -i -e 's/#en_US ISO-8859-1/en_US ISO-8859-1/g' /etc/locale.gen" >> /mnt/continue.sh
-echo "locale-gen" >> /mnt/continue.sh
-echo "echo \"LANG=EN_US.UTF-8\" > /etc/locale.conf" >> /mnt/continue.sh
-echo "echo \"zopzop\" > /etc/hostname" >> /mnt/continue.sh
-echo "echo \"127.0.1.1  zopzop\">> /etc/hosts" >> /mnt/continue.sh
+    #Create file to run within chroot environment
+    echo "ln -sf /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime" >> /mnt/continue.sh
+    echo "hwclock --systohc" >> /mnt/continue.sh
+    echo "sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen" >> /mnt/continue.sh
+    echo "sed -i -e 's/#en_US ISO-8859-1/en_US ISO-8859-1/g' /etc/locale.gen" >> /mnt/continue.sh
+    echo "locale-gen" >> /mnt/continue.sh
+    echo "echo \"LANG=EN_US.UTF-8\" > /etc/locale.conf" >> /mnt/continue.sh
+    echo "echo \"zopzop\" > /etc/hostname" >> /mnt/continue.sh
+    echo "echo \"127.0.1.1  zopzop\">> /etc/hosts" >> /mnt/continue.sh
 
-echo "pacman -Sy networkmanager git sudo vim wget --noconfirm" >> /mnt/continue.sh
-echo "systemctl enable NetworkManager" >> /mnt/continue.sh
-echo "useradd -G wheel -m zopazz" >> /mnt/continue.sh
-echo "echo \"Set user password\"" >> /mnt/continue.sh
-echo "passwd zopazz" >> /mnt/continue.sh
+    echo "pacman -Sy networkmanager git sudo vim wget --noconfirm" >> /mnt/continue.sh
+    echo "systemctl enable NetworkManager" >> /mnt/continue.sh
+    echo "useradd -G wheel -m zopazz" >> /mnt/continue.sh
+    echo "echo \"Set user password\"" >> /mnt/continue.sh
+    echo "passwd zopazz" >> /mnt/continue.sh
 
-echo "pacman -Sy grub efibootmgr --noconfirm" >> /mnt/continue.sh
-echo "pacman -Sy os-prober --noconfirm" >> /mnt/continue.sh
-echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub" >> /mnt/continue.sh
-echo "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB" >> /mnt/continue.sh
-echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/continue.sh
+    echo "pacman -Sy grub efibootmgr --noconfirm" >> /mnt/continue.sh
+    echo "pacman -Sy os-prober --noconfirm" >> /mnt/continue.sh
+    echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub" >> /mnt/continue.sh
+    echo "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB" >> /mnt/continue.sh
+    echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/continue.sh
 
-echo "echo \"Set root password\"" >> /mnt/continue.sh
-echo "echo \"git clone https://github.com/Mymaqn/archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
-echo "echo \"cd archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
-echo "echo \"chmod +x ./configuration.sh >> /home/zopazz/configure.sh" >> /mnt/continue.sh
-echo "echo \"./configuration.sh\"" >> /mnt/continue.sh
-echo "passwd" >> /mnt/continue.sh
-echo "exit" >> /mnt/continue.sh
+    echo "echo \"Set root password\"" >> /mnt/continue.sh
+    echo "echo \"git clone https://github.com/Mymaqn/archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
+    echo "echo \"cd archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
+    echo "echo \"chmod +x ./configuration.sh >> /home/zopazz/configure.sh" >> /mnt/continue.sh
+    echo "echo \"./configuration.sh\"" >> /mnt/continue.sh
+    echo "passwd" >> /mnt/continue.sh
+    echo "exit" >> /mnt/continue.sh
 
 
 
-#Go chroot in
-arch-chroot /mnt /bin/bash -c "chmod +x /continue.sh;/continue.sh"
-rm /mnt/continue.sh
-echo "Rebooting in 3 seconds.." && sleep 3
-reboot now
-;;
+    #Go chroot in
+    arch-chroot /mnt /bin/bash -c "chmod +x /continue.sh;/continue.sh"
+    rm /mnt/continue.sh
+    echo "Rebooting in 3 seconds.." && sleep 3
+    reboot now
+    ;;
 *)
-echo "Aborting"
-;;
+    echo "Aborting"
+    ;;
 esac
 
