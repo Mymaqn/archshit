@@ -33,11 +33,9 @@ echo "Swap partition $swapPart"
 
 echo ""
 echo "These partitions will now be overwritten by a new filesystem and get formatted"
-read -p "Are you sure you want to continue? (y/N)" $formatdisk
+read -p "Are you sure you want to continue? (y/N)" formatdisk
 echo "------------------------------------------------------------------------"
-echo "$formatdisk"
 
-echo $formatdisk in "y/Y/yes/Yes"
 case $formatdisk in
 
 y/Y/yes/Yes)
