@@ -36,6 +36,8 @@ echo "These partitions will now be overwritten by a new filesystem and get forma
 read -p "Are you sure you want to continue? (y/N)" formatdisk
 echo "------------------------------------------------------------------------"
 
+echo $formatdisk
+
 case $formatdisk in
 
 y/Y/yes/Yes)
