@@ -1,4 +1,3 @@
-pacman -Syuu
 timedatectl set-ntp true
 lsblk
 echo "Create a main drive as Linux Filesystem and a 4gig swap type partition"
@@ -12,8 +11,10 @@ read -p "Filesystem partition name:" ext4Part
 read -p "Swap partition name:" swapPart
 
 mkfs.ext4 $ext4Part
+mkfs.fat -F 32 $efipart
 mkswap $swapPart
 swapon $swapPart
+
 
 mount $ext4Part /mnt
 
