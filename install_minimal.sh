@@ -81,11 +81,12 @@ y|Y|yes|Yes)
     echo "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB" >> /mnt/continue.sh
     echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/continue.sh
 
-    echo "echo \"Set root password\"" >> /mnt/continue.sh
+    
     echo "echo \"git clone https://github.com/Mymaqn/archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     echo "echo \"cd archshit\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
     echo "echo \"chmod +x ./configuration.sh >> /home/zopazz/configure.sh" >> /mnt/continue.sh
-    echo "echo \"./configuration.sh\"" >> /mnt/continue.sh
+    echo "echo \"./configuration.sh\" >> /home/zopazz/configure.sh" >> /mnt/continue.sh
+    echo "echo \"Set root password\"" >> /mnt/continue.sh
     echo "passwd" >> /mnt/continue.sh
     echo "exit" >> /mnt/continue.sh
 
