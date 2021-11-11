@@ -39,7 +39,7 @@ echo "------------------------------------------------------------------------"
 echo $formatdisk
 
 case $formatdisk in
-"y"/"Y"/"yes"/"Yes")
+y|Y|yes|Yes)
 
     mkfs.ext4 $ext4Part
     mkfs.fat -F 32 $efipart
