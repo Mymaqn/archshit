@@ -94,7 +94,7 @@ y|Y|yes|Yes)
     #Go chroot in
     arch-chroot /mnt /bin/bash -c "chmod +x /continue.sh;/continue.sh"
     rm /mnt/continue.sh
-    echo "Rebooting in 3 seconds.." && sleep 3
+    read -p "Press any key to reboot" 
     reboot now
     ;;
 *)
