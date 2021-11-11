@@ -22,8 +22,6 @@ mount $ext4Part /mnt
 mkdir /mnt/efi
 mount $efipart /mnt/efi
 
-
-
 #install base system
 pacstrap /mnt base linux linux-firmware
 
@@ -47,6 +45,7 @@ echo "passwd zopazz" >> /mnt/continue.sh
 
 echo "pacman -Sy grub efibootmgr" >> /mnt/continue.sh
 echo "pacman -Sy os-prober" >> /mnt/continue.sh
+echo "echo \"GRUB_DISABLE_OS_PROBER=false\" >> /etc/default/grub"
 echo "grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB" >> /mnt/continue.sh
 echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/continue.sh
 
