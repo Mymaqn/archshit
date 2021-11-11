@@ -33,10 +33,11 @@ echo "Swap partition $swapPart"
 
 echo ""
 echo "These partitions will now be overwritten by a new filesystem and get formatted"
-read -p "Are you sure you want to continue? (y/N)" $format
+read -p "Are you sure you want to continue? (y/N)" $formatdisk
 echo "------------------------------------------------------------------------"
 
-case $format in
+case $formatdisk in
+
 y/Y/yes/Yes)
 
 mkfs.ext4 $ext4Part
@@ -97,5 +98,6 @@ reboot now
 ;;
 *)
 echo "Aborting"
+;;
 esac
 
