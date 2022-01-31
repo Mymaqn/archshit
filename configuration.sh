@@ -27,10 +27,10 @@ cd ..
 yay -Sy python-pwntools --noconfirm
 
 #Install Cutter
-mkdir /opt/tools
+sudo mkdir /opt/tools
 wget https://github.com/rizinorg/cutter/releases/download/v2.0.5/Cutter-v2.0.5-x64.Linux.AppImage
-cp ./Cutter-v2.0.5-x64.Linux.AppImage /opt/tools/Cutter
-chmod +x /opt/tools/Cutter
+sudo cp ./Cutter-v2.0.5-x64.Linux.AppImage /opt/tools/Cutter
+sudo chmod +x /opt/tools/Cutter
 
 #Get networking running and display manager
 sudo systemctl enable NetworkManager
