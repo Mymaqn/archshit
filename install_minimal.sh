@@ -80,7 +80,7 @@ y|Y|yes|Yes)
 
     #Create new user and add them to the sudoers file along with everyone in the wheel group
     echo "useradd -G wheel -m zopazz" >> /mnt/continue.sh
-    echo "wget https://pastebin.com/raw/9kzVWVnF -O sudoers" >> /mnt/continue.sh
+    echo "wget https://raw.githubusercontent.com/Mymaqn/archshit/main/sudoers -O sudoers" >> /mnt/continue.sh
     echo "cp ./sudoers /etc/sudoers" >> /mnt/continue.sh
     echo "rm -rf ./sudoers" >> /mnt/continue.sh
     
