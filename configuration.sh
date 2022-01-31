@@ -6,7 +6,7 @@ sudo pacman -Sy python3 python-pip --noconfirm
 
 #Installation of tools I want
 sudo pacman -Syuu --noconfirm
-sudo pacman -Sy base-devel net-tools linux-headers libuv mlocate xorg plasma-desktop sddm firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-gtk-config egl-wayland zsh wget fd gdb pwndbg binwalk virtualbox --noconfirm
+sudo pacman -Sy base-devel net-tools linux-headers libuv mlocate xorg plasma-desktop sddm firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-gtk-config egl-wayland zsh wget fd gdb pwndbg binwalk vscode virtualbox --noconfirm
 
 #Apply pwndbg config:
 echo 'source /usr/share/pwndbg/gdbinit.py' >> ~/.gdbinit
