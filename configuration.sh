@@ -8,6 +8,8 @@ sudo pacman -Sy python3
 sudo pacman -Syuu
 sudo pacman -Sy base-devel net-tools linux-headers libuv mlocate xorg plasma-desktop sddm firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-gtk-config egl-wayland zsh wget fd gdb pwndbg binwalk virtualbox --noconfirm
 
+#Apply pwndbg config:
+echo 'source /usr/share/pwndbg/gdbinit.py' >> ~/.gdbinit
 
 #Install python packages
 pip3 install wheel
