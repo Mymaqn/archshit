@@ -1,30 +1,30 @@
 #Installation of git
-sudo pacman -Sy git
+sudo pacman -Sy git --noconfirm
 
 #Installation of Python
-sudo pacman -Sy python3
+sudo pacman -Sy python3 python-pip --noconfirm
 
 #Installation of tools I want
-sudo pacman -Syuu
+sudo pacman -Syuu --noconfirm
 sudo pacman -Sy base-devel net-tools linux-headers libuv mlocate xorg plasma-desktop sddm firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-gtk-config egl-wayland zsh wget fd gdb pwndbg binwalk virtualbox --noconfirm
 
 #Apply pwndbg config:
 echo 'source /usr/share/pwndbg/gdbinit.py' >> ~/.gdbinit
 
 #Install python packages
-pip3 install wheel
-pip3 install pycrypto
-pip3 install pycryptodome
-pip3 install ropper
-pip3 install bs4
+pip install wheel
+pip install pycrypto
+pip install pycryptodome
+pip install ropper
+pip install bs4
 
 #Install yay and AUR packages:
 git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 
-yay -Sy python-pwntools --no-confirm
+yay -Sy python-pwntools --noconfirm
 
 #Install Cutter
 mkdir /opt/tools
