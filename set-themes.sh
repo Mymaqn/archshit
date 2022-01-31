@@ -1,4 +1,5 @@
 #Set wallpaper
+mkdir ~/Pictures
 cp wallpaper.png ~/Pictures
 ./set-wallpaper.sh
 
