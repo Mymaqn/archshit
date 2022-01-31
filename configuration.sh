@@ -8,6 +8,7 @@ sudo pacman -Sy python3 python-pip --noconfirm
 sudo pacman -Syuu --noconfirm
 sudo pacman -Sy base-devel net-tools fuse linux-headers libuv mlocate xorg plasma-desktop sddm firefox plasma-nm plasma-pa dolphin konsole kdeplasma-addons kde-gtk-config egl-wayland zsh wget fd gdb pwndbg binwalk vscode virtualbox --noconfirm
 
+
 #Apply pwndbg config:
 echo 'source /usr/share/pwndbg/gdbinit.py' >> ~/.gdbinit
 
@@ -32,11 +33,14 @@ wget https://github.com/rizinorg/cutter/releases/download/v2.0.5/Cutter-v2.0.5-x
 sudo cp ./Cutter-v2.0.5-x64.Linux.AppImage /opt/tools/Cutter
 sudo chmod +x /opt/tools/Cutter
 
-cp wallpaper.png ~/Pictures
-
 #Get networking running and display manager
 sudo systemctl enable NetworkManager
 sudo systemctl enable sddm
+
+#Set wallpaper
+cp wallpaper.png ~/Pictures
+./set-wallpaper.sh
+
 
 #Installation of zsh with cool stuff WOOP
 zsh /usr/share/zsh/functions/Newuser/zsh-newuser-install -f
@@ -62,4 +66,9 @@ echo "export PATH=\"\$PATH:/opt/tools\"" >> .zshrc
 sed -i -e 's/plugins=(git)/plugins=(fzf git history-substring-search colored-man-pages zsh-autosuggestions zsh-syntax-highlighting z)/g' $HOME/.zshrc
 sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="juanghurtado"/g' $HOME/.zshrc
 
+#Update the mlocate database
+sudo updatedb
+
 echo "Restart when you are ready and the full configuration should work"
+
+
