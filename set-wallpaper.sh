@@ -1,12 +1,4 @@
-
-
-# //// CONFIGURABLE VARIABLES ////////////
-
-# pausetime between iterations
-# location of wallpapers folder
 location="$HOME/Pictures/wallpaper.png"
-
-# ////////////////////////////////////////
 
 dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
 var Desktops = desktops();                                                                                                                       

@@ -68,6 +68,8 @@ sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="juanghurtado"/g' $HOME/.zshrc
 #Update the mlocate database
 sudo updatedb
 
+./set-themes.sh
+
 echo "Restart when you are ready and the full configuration should work"
 
 
