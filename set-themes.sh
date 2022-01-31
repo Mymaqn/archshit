@@ -5,6 +5,7 @@ cp wallpaper.png ~/Pictures
 
 
 #Set the global KDE theme:
+mkdir ~/.local/share/plasma
 mkdir ~/.local/share/plasma/look-and-feel
 tar xf ./kde-theme/Iridescent-kvantum.tar.gz -C ~/.local/share/plasma/look-and-feel/
 lookandfeeltool -a Iridescent-kvantum
