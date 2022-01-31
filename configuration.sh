@@ -32,6 +32,8 @@ wget https://github.com/rizinorg/cutter/releases/download/v2.0.5/Cutter-v2.0.5-x
 sudo cp ./Cutter-v2.0.5-x64.Linux.AppImage /opt/tools/Cutter
 sudo chmod +x /opt/tools/Cutter
 
+cp wallpaper.png ~/Pictures
+
 #Get networking running and display manager
 sudo systemctl enable NetworkManager
 sudo systemctl enable sddm
@@ -56,7 +58,7 @@ echo "export PYTHONIOENCODING=UTF-8" >> .zshrc
 echo "export PATH=\"\$PATH:\$HOME/.local/bin\"" >> .zshrc
 echo "export PATH=\"\$PATH:/opt/tools\"" >> .zshrc
 
-#Set plugins and theme
+#Set zsh plugins and theme
 sed -i -e 's/plugins=(git)/plugins=(fzf git history-substring-search colored-man-pages zsh-autosuggestions zsh-syntax-highlighting z)/g' $HOME/.zshrc
 sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="juanghurtado"/g' $HOME/.zshrc
 
