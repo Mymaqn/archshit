@@ -33,6 +33,10 @@ wget https://github.com/rizinorg/cutter/releases/download/v2.0.5/Cutter-v2.0.5-x
 sudo cp ./Cutter-v2.0.5-x64.Linux.AppImage /opt/tools/Cutter
 sudo chmod +x /opt/tools/Cutter
 
+#Make set-themes and set-wallpaper executable
+chmod +x ./set-themes.sh
+chmod +x ./set-wallpaper.sh
+
 #Get networking running and display manager
 sudo systemctl enable NetworkManager
 sudo systemctl enable sddm
