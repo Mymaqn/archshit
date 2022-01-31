@@ -1,7 +1,10 @@
 #Set wallpaper
 mkdir ~/Pictures
 cp wallpaper.png ~/Pictures
+cp ./set-wallpaper.sh ~/.config 
 ./set-wallpaper.sh
+
+echo "\$HOME/.config/set-wallpaper.sh" >> .zshrc
 
 
 #Set the global KDE theme:
