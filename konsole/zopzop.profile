@@ -2,5 +2,5 @@
 ColorScheme=Shiny-Konsole
 
 [General]
-Name=Profile 1
+Name=zopzop
 Parent=FALLBACK/
